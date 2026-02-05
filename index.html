@@ -1,98 +1,128 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Valentine 💖</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Abby 🩵</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Pacifico&display=swap" rel="stylesheet">
 
 <style>
-body {
-  margin: 0;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  text-align: center;
-  font-family: 'Poppins', sans-serif;
-  background: linear-gradient(135deg, #ffd6e7, #ffe9f2, #fff5f9);
-  overflow: hidden;
+body{
+  margin:0;
+  min-height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  flex-direction:column;
+  text-align:center;
+  font-family:'Poppins',sans-serif;
+  background:linear-gradient(135deg,#ffd6e7,#ffe9f2,#fff5f9);
+  overflow-x:hidden;
+  padding:20px;
+  animation:fadeIn 1.5s ease;
 }
 
-h1 {
-  font-family: 'Pacifico', cursive;
-  font-size: 42px;
-  color: #ff4d8d;
+@keyframes fadeIn{
+ from{opacity:0; transform:translateY(10px);}
+ to{opacity:1; transform:translateY(0);}
 }
 
-p {
-  font-size: 18px;
-  color: #555;
-  max-width: 400px;
+h1{
+  font-family:'Pacifico',cursive;
+  color:#ff4d8d;
+  font-size:clamp(28px,5vw,42px);
+  margin:10px;
 }
 
-button {
-  padding: 15px 28px;
-  font-size: 18px;
-  border-radius: 30px;
-  border: none;
-  cursor: pointer;
-  margin: 10px;
-  transition: 0.3s;
-  font-family: 'Poppins', sans-serif;
+p{
+  color:#555;
+  max-width:500px;
+  font-size:clamp(16px,2.5vw,18px);
 }
 
-#yesBtn {
-  background-color: #ff4d8d;
-  color: white;
-  box-shadow: 0 4px 15px rgba(255, 77, 141, 0.4);
+button{
+  padding:16px 30px;
+  font-size:clamp(16px,2.5vw,18px);
+  border-radius:30px;
+  border:none;
+  cursor:pointer;
+  margin:10px;
+  width:min(220px,80vw);
 }
 
-#yesBtn:hover { transform: scale(1.1); }
-
-#noBtn {
-  background-color: white;
-  color: #ff4d8d;
-  border: 2px solid #ff4d8d;
+#yesBtn{
+  background:#ff4d8d;
+  color:white;
+  box-shadow:0 4px 15px rgba(255,77,141,.4);
+  animation:heartbeat 1.5s infinite;
 }
 
-.heart {
-  position: fixed;
-  bottom: -20px;
-  font-size: 20px;
-  animation: floatHearts 6s linear infinite;
+@keyframes heartbeat {
+ 0%{transform:scale(1);}
+ 25%{transform:scale(1.05);}
+ 40%{transform:scale(1);}
+ 60%{transform:scale(1.05);}
+ 100%{transform:scale(1);}
 }
 
-@keyframes floatHearts {
-  0% { transform: translateY(0); opacity: 1; }
-  100% { transform: translateY(-800px); opacity: 0; }
+#noBtn{
+  background:white;
+  color:#ff4d8d;
+  border:2px solid #ff4d8d;
+}
+
+#valentineGif{
+  width:min(220px,60vw);
+  border-radius:20px;
+  margin:15px;
+  box-shadow:0 5px 15px rgba(0,0,0,.2);
+}
+
+.heart{
+ position:fixed;
+ bottom:-20px;
+ font-size:22px;
+ animation:float 6s linear infinite;
+}
+@keyframes float{
+ 0%{transform:translateY(0);}
+ 100%{transform:translateY(-900px);opacity:0;}
+}
+
+/* footer */
+.footer{
+  position:fixed;
+  bottom:12px;
+  left:0;
+  width:100%;
+  text-align:center;
+  font-size:12px;
+  color:#999;
+  pointer-events:none;
 }
 </style>
 </head>
 
 <body>
 
-<h1>Hi, Jeam Abby Keith Panganiban 😊</h1>
-<p>
-Because you’re my favorite notification, my favorite good morning,
-and my favorite person to miss.
-</p>
+<h1 id="typing"></h1>
 
+<p>Because you’re my favorite notification, my favorite good morning, and my favorite person to miss.</p>
 <p>So I have a very important question…</p>
+
+<img id="valentineGif" src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExbnp1MG13ZWhsbGdxa2RvdjR2eHh2Z3d3dzVsMXI0anJ6aWlvZm5veCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/901mxGLGQN2PyCQpoc/giphy.gif">
 
 <h1>Will you be my Valentine? 💖</h1>
 
-<img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExaWVub2V1cGl6eW80OHM2NzdnajU4b2hqY2NncXZhc3BycWg4MHVqNCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/901mxGLGQN2PyCQpoc/giphy.gif" 
-     alt="valentine gif" 
-     style="width:80%; max-width:700px; display:block; margin:30px auto;">
+<button id="yesBtn">YES!!! 💕</button>
+<button id="noBtn">no (are you sure?) 🥺</button>
 
-<div>
-  <button id="yesBtn">YES!!! 💕</button>
-  <button id="noBtn">no (are you sure?) 🥺</button>
-</div>
+<footer class="footer">
+  made with love just for you 💌
+</footer>
 
-<!-- floating hearts -->
 <div class="heart" style="left:10%">❤️</div>
 <div class="heart" style="left:30%">💖</div>
 <div class="heart" style="left:50%">💕</div>
@@ -100,44 +130,70 @@ and my favorite person to miss.
 <div class="heart" style="left:90%">💘</div>
 
 <script>
-const noBtn = document.getElementById("noBtn");
-const yesBtn = document.getElementById("yesBtn");
+// typing intro
+const text="Hi, Jeam Abby Keith Panganiban 😊";
+let i=0;
+function type(){ if(i<text.length){document.getElementById("typing").innerHTML+=text.charAt(i); i++; setTimeout(type,50);} }
+type();
 
-const messages = [
-  "sure na yarn? 😏",
-  "huuiii, illegal yan haha 😤",
-  "wrong answer nganiii 🚫",
-  "try the other button, baby 😌",
-  "you know you want to click YES 💖"
-];
+// hearts burst anywhere clicked
+document.addEventListener("click", function(e){
+ for(let i=0;i<10;i++){
+  let heart=document.createElement("div");
+  heart.innerHTML=["💖","💗","💕","💘","❤️"][Math.floor(Math.random()*5)];
+  heart.style.position="fixed";
+  heart.style.left=e.clientX+"px";
+  heart.style.top=e.clientY+"px";
+  heart.style.fontSize=(Math.random()*10+18)+"px";
+  heart.style.pointerEvents="none";
+  document.body.appendChild(heart);
 
-function moveButton() {
-  const maxX = window.innerWidth - noBtn.offsetWidth;
-  const maxY = window.innerHeight - noBtn.offsetHeight;
-  const randomX = Math.floor(Math.random() * maxX);
-  const randomY = Math.floor(Math.random() * maxY);
-
-  noBtn.style.position = "absolute";
-  noBtn.style.left = randomX + "px";
-  noBtn.style.top = randomY + "px";
-
-  const randomMsg = messages[Math.floor(Math.random() * messages.length)];
-  noBtn.innerText = randomMsg;
-}
-
-noBtn.addEventListener("mouseover", moveButton);
-noBtn.addEventListener("click", moveButton);
-
-yesBtn.addEventListener("click", () => {
-  document.body.innerHTML = `
-    <div style="text-align:center; margin-top:100px;">
-      <h1 style="font-family:Pacifico; color:#ff4d8d;">YAAAY 😭❤️</h1>
-      <p style="font-size:22px;">You just made me the happiest person alive.</p>
-      <p style="font-size:18px;">Valentine's date loading… 🌹🍫</p>
-      <p>(You're stuck with me now 😌)</p>
-    </div>
-  `;
+  const x=(Math.random()-0.5)*200;
+  const y=(Math.random()-0.5)*200;
+  heart.animate([
+    {transform:"translate(0,0) scale(1)",opacity:1},
+    {transform:`translate(${x}px,${y}px) scale(1.8)`,opacity:0}
+  ],{duration:1200,easing:"ease-out"});
+  setTimeout(()=>heart.remove(),1200);
+ }
 });
+
+// runaway NO button
+const noBtn=document.getElementById("noBtn");
+const msgs=["Are you suuuuure? 🥺","That hurts my feelings 😭","Try again 😌","Oops wrong button 😂","You misclicked 👀","Nice joke 🤭","Be serious pls 😤","You know the answer 😏","Stop playing 😆","Click YES na 😌💕","Ayaw mo ba sakin? 😭","Wag ganun 🥲","Last chance 😤","Please? 🥺👉👈","Okay fine… try again 😌"];
+
+function move(){
+ const x=Math.random()*(window.innerWidth-noBtn.offsetWidth-20);
+ const y=Math.random()*(window.innerHeight-noBtn.offsetHeight-20);
+ noBtn.style.position="fixed";
+ noBtn.style.left=x+"px";
+ noBtn.style.top=y+"px";
+ noBtn.innerText=msgs[Math.floor(Math.random()*msgs.length)];
+}
+noBtn.onmouseover=move;
+noBtn.onclick=move;
+
+// YES click message + confetti
+document.getElementById("yesBtn").onclick=()=>{
+ document.body.innerHTML=`
+ <div style="padding:30px">
+ <h1 style="font-family:Pacifico;color:#ff4d8d">YAAAY 😭❤️</h1>
+ <p>You just made me the happiest person alive.</p>
+ <p>Thank you for being you and making my days brighter.</p>
+ <p>I can't wait to spend Valentine's Day with you 🌹</p>
+ <p>You're stuck with me now 😌💖</p>
+ </div>`;
+ for(let i=0;i<200;i++){
+  let c=document.createElement("div");
+  c.innerHTML="💖";
+  c.style.position="fixed";
+  c.style.left=Math.random()*100+"vw";
+  c.style.top="-20px";
+  c.style.fontSize="24px";
+  c.style.animation="float 4s linear forwards";
+  document.body.appendChild(c);
+ }
+};
 </script>
 
 </body>
