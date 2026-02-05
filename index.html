@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Valentine 💖</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Pacifico&display=swap" rel="stylesheet">
+
+<style>
+body {
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #ffd6e7, #ffe9f2, #fff5f9);
+  overflow: hidden;
+}
+
+h1 {
+  font-family: 'Pacifico', cursive;
+  font-size: 42px;
+  color: #ff4d8d;
+}
+
+p {
+  font-size: 18px;
+  color: #555;
+  max-width: 400px;
+}
+
+button {
+  padding: 15px 28px;
+  font-size: 18px;
+  border-radius: 30px;
+  border: none;
+  cursor: pointer;
+  margin: 10px;
+  transition: 0.3s;
+  font-family: 'Poppins', sans-serif;
+}
+
+#yesBtn {
+  background-color: #ff4d8d;
+  color: white;
+  box-shadow: 0 4px 15px rgba(255, 77, 141, 0.4);
+}
+
+#yesBtn:hover { transform: scale(1.1); }
+
+#noBtn {
+  background-color: white;
+  color: #ff4d8d;
+  border: 2px solid #ff4d8d;
+}
+
+.heart {
+  position: fixed;
+  bottom: -20px;
+  font-size: 20px;
+  animation: floatHearts 6s linear infinite;
+}
+
+@keyframes floatHearts {
+  0% { transform: translateY(0); opacity: 1; }
+  100% { transform: translateY(-800px); opacity: 0; }
+}
+</style>
+</head>
+
+<body>
+
+<h1>Hi Abby 😊</h1>
+<p>
+Because you’re my favorite notification, my favorite good morning,
+and my favorite person to miss.
+</p>
+
+<p>So I have a very important question…</p>
+
+<h1>Will you be my Valentine? 💖</h1>
+
+<div>
+  <button id="yesBtn">YES!!! 💕</button>
+  <button id="noBtn">no (are you sure?) 🥺</button>
+</div>
+
+<!-- floating hearts -->
+<div class="heart" style="left:10%">❤️</div>
+<div class="heart" style="left:30%">💖</div>
+<div class="heart" style="left:50%">💕</div>
+<div class="heart" style="left:70%">💗</div>
+<div class="heart" style="left:90%">💘</div>
+
+<script>
+const noBtn = document.getElementById("noBtn");
+const yesBtn = document.getElementById("yesBtn");
+
+const messages = [
+  "sure na yarn? 😏",
+  "huuiii, illegal yan haha 😤",
+  "wrong answer nganiii 🚫",
+  "try the other button, baby 😌",
+  "you know you want to click YES 💖"
+];
+
+function moveButton() {
+  const maxX = window.innerWidth - noBtn.offsetWidth;
+  const maxY = window.innerHeight - noBtn.offsetHeight;
+  const randomX = Math.floor(Math.random() * maxX);
+  const randomY = Math.floor(Math.random() * maxY);
+
+  noBtn.style.position = "absolute";
+  noBtn.style.left = randomX + "px";
+  noBtn.style.top = randomY + "px";
+
+  const randomMsg = messages[Math.floor(Math.random() * messages.length)];
+  noBtn.innerText = randomMsg;
+}
+
+noBtn.addEventListener("mouseover", moveButton);
+noBtn.addEventListener("click", moveButton);
+
+yesBtn.addEventListener("click", () => {
+  document.body.innerHTML = `
+    <div style="text-align:center; margin-top:100px;">
+      <h1 style="font-family:Pacifico; color:#ff4d8d;">YAAAY 😭❤️</h1>
+      <p style="font-size:22px;">You just made me the happiest person alive.</p>
+      <p style="font-size:18px;">Valentine's date loading… 🌹🍫</p>
+      <p>(You're stuck with me now 😌)</p>
+    </div>
+  `;
+});
+</script>
+
+</body>
+</html>
