@@ -11,7 +11,7 @@
 <style>
 body{
   margin:0;
-  height:100vh;                 /* lock to screen height */
+  min-height:100vh;
   display:flex;
   justify-content:center;
   align-items:center;
@@ -19,8 +19,9 @@ body{
   text-align:center;
   font-family:'Poppins',sans-serif;
   background:linear-gradient(135deg,#ffd6e7,#ffe9f2,#fff5f9);
-  overflow:hidden;              /* 🚫 disables scrolling */
-  padding:16px;
+  overflow-x:hidden;
+  padding:20px;
+  animation:fadeIn 1.5s ease;
 }
 
 @keyframes fadeIn{
