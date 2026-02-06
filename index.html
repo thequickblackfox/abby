@@ -158,6 +158,30 @@ document.addEventListener("click", function(e){
  }
 });
 
+// 💖 Slow floating hearts in background
+setInterval(()=>{
+  let heart=document.createElement("div");
+  heart.innerHTML=["💖","💕","💗","💘"][Math.floor(Math.random()*4)];
+  heart.style.position="fixed";
+  heart.style.left=Math.random()*100+"vw";
+  heart.style.bottom="-30px";
+  heart.style.fontSize=(Math.random()*12+16)+"px";
+  heart.style.opacity="0.6";
+  heart.style.pointerEvents="none";
+
+  document.body.appendChild(heart);
+
+  heart.animate([
+    { transform:"translateY(0)", opacity:0.6 },
+    { transform:"translateY(-120vh)", opacity:0 }
+  ],{
+    duration:9000,   // slow movement
+    easing:"linear"
+  });
+
+  setTimeout(()=>heart.remove(),9000);
+},1200); // new heart every 1.2 sec
+
 // runaway NO button
 const noBtn=document.getElementById("noBtn");
 const msgs=["Are you suuuuure? 🥺","That hurts my feelings 😭","It's a love story, baby, just say, YES 🥰","Oops wrong button 😂","Click YES to Heaven 😇","nyee nyeee 🤪","Be serious pls 😤","You know the answer 😏","Stop playing 😆","Click YES na 😌💕","Ayaw mo ba sakin? 😭","Wag ganun 🥲","Last chance 😤","Please? 🥺👉👈","Okay fine… try again 😌"];
