@@ -64,6 +64,15 @@ button{
   animation:heartbeat 1.5s infinite;
 }
 
+.btnRow{
+  display:flex;
+  gap:12px;
+  justify-content:center;
+  align-items:center;
+  flex-wrap:wrap; /* prevents overflow on very small phones */
+  margin-top:6px;
+}
+
 @keyframes heartbeat {
  0%{transform:scale(1);}
  25%{transform:scale(1.05);}
