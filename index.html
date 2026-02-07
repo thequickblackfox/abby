@@ -1,4 +1,5 @@
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -238,21 +239,6 @@ for(let i=0;i<200;i++){
  c.style.animation="float 4s linear forwards";
  document.body.appendChild(c);
 }
-
-// ⏳ Valentine countdown
-function updateCountdown(){
- const valentines=new Date("Feb 14, 2026 00:00:00").getTime();
- const now=new Date().getTime();
- const gap=valentines-now;
-
- const days=Math.floor(gap/(1000*60*60*24));
- const hours=Math.floor((gap%(1000*60*60*24))/(1000*60*60));
- const mins=Math.floor((gap%(1000*60*60))/(1000*60));
-
- document.getElementById("countdown").innerHTML=
- "Valentine's countdown: "+days+"d "+hours+"h "+mins+"m 💘";
-}
-setInterval(updateCountdown,1000);
 };
 </script>
 
