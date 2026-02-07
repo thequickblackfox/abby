@@ -109,6 +109,17 @@ button{
  100%{transform:translateY(-900px);opacity:0;}
 }
 
+#yesText{
+  color:#ff6fa5;
+  margin-top:-5px;
+  animation:bounce 1s infinite;
+}
+
+@keyframes bounce{
+ 0%,100%{transform:translateY(0);}
+ 50%{transform:translateY(-10px);}
+}
+
 </style>
 </head>
 
@@ -211,6 +222,7 @@ document.body.innerHTML=`
  style="width:320px;max-width:85vw;border-radius:20px;margin-bottom:15px;box-shadow:0 5px 15px rgba(0,0,0,.2);">
 
 <h1 style="font-family:Pacifico;color:#ff4d8d">I LOVE YOU 😭❤️</h1>
+<h2 id="yesText">She said YES!!! 💕</h2>
 <p id="loveMsg"></p>
 </div>`;
 
