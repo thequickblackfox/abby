@@ -211,21 +211,39 @@ document.body.innerHTML=`
 <p style="margin-top:20px">Our song is playing 🎶</p>
 </div>`;
 
-// 🎵 ADD THIS PART HERE (music will work now)
+// 🎵 MOBILE SAFE AUDIO PLAY
 const song = new Audio("https://cdn.pixabay.com/download/audio/2022/03/22/audio_3a4b0c8d3a.mp3?filename=la-vie-en-rose-ambient-11288.mp3");
 song.loop = true;
 song.volume = 0;
-song.play();
 
-let vol = 0;
-const fade = setInterval(()=>{
-  if(vol < 1){
-    vol += 0.05;
-    song.volume = vol;
-  } else {
-    clearInterval(fade);
-  }
-},300);
+// force audio unlock after click
+const playPromise = song.play();
+
+if (playPromise !== undefined) {
+  playPromise.then(() => {
+    // 🔊 Fade in volume smoothly
+    let vol = 0;
+    const fade = setInterval(()=>{
+      if(vol < 1){
+        vol += 0.05;
+        song.volume = vol;
+      } else {
+        clearInterval(fade);
+      }
+    },300);
+  }).catch(() => {
+    // if phone still blocks it, show tap-to-start message
+    const tapMsg = document.createElement("p");
+    tapMsg.innerHTML = "Tap anywhere to start our song 🎶";
+    tapMsg.style.marginTop = "20px";
+    document.body.appendChild(tapMsg);
+
+    document.body.addEventListener("click", () => {
+      song.play();
+      tapMsg.remove();
+    }, { once:true });
+  });
+}
 
 // 💌 typing love message
 const msg="You just made me the happiest person alive. I can't wait to spend Valentine's Day with you 🌹 You're stuck with me now 😌💖";
