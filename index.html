@@ -247,28 +247,6 @@ for(let i=0;i<200;i++){
  c.style.animation="float 4s linear forwards";
  document.body.appendChild(c);
 }
-
-// 🎆 FIREWORKS
-setInterval(()=>{
-  const firework = document.createElement("div");
-  firework.innerHTML="🎆";
-  firework.style.position="fixed";
-  firework.style.left=Math.random()*100+"vw";
-  firework.style.bottom="0";
-  firework.style.fontSize="30px";
-  document.body.appendChild(firework);
-
-  firework.animate([
-    {transform:"translateY(0)", opacity:1},
-    {transform:"translateY(-70vh)", opacity:1},
-    {transform:"translateY(-70vh) scale(2)", opacity:0}
-  ],{
-    duration:2000,
-    easing:"ease-out"
-  });
-
-  setTimeout(()=>firework.remove(),2000);
-},900);
   
 };
 </script>
