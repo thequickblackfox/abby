@@ -204,10 +204,12 @@ document.getElementById("yesBtn").onclick=()=>{
 // 📳 Phone vibration
 if(navigator.vibrate) navigator.vibrate([200,100,200,100,400]);
 
-// 🎵 Romantic music
-let music=new Audio("https://www.bensound.com/bensound-music/bensound-romantic.mp3");
-music.loop=true;
-music.play();
+// 🎵 Play Emotion Sickness - Parachute (YouTube autoplay)
+const iframe = document.createElement("iframe");
+iframe.src="https://www.youtube.com/embed/4wQq3IYy1Qk?autoplay=1&loop=1&playlist=4wQq3IYy1Qk";
+iframe.allow="autoplay";
+iframe.style.display="none";
+document.body.appendChild(iframe);
 
 document.body.innerHTML=`
 <div style="padding:30px">
