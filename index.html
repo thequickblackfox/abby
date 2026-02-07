@@ -204,31 +204,23 @@ document.getElementById("yesBtn").onclick=()=>{
 // 📳 Phone vibration
 if(navigator.vibrate) navigator.vibrate([200,100,200,100,400]);
 
-// 🎵 Spotify player – Emotion Sickness by Parachute
-const spotify = document.createElement("iframe");
-spotify.src="https://open.spotify.com/embed/track/2tUBqZG2AbRi7Q0BIrVrEj";
-spotify.width="300";
-spotify.height="80";
-spotify.style.borderRadius="12px";
-spotify.style.marginTop="20px";
-spotify.allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture";
-document.body.appendChild(spotify);
-
-// 💌 show cute play message
-const playMsg=document.createElement("p");
-playMsg.innerHTML="Press play and think of me 💚";
-playMsg.style.opacity="0";
-playMsg.style.transition="1.5s";
-playMsg.style.marginTop="10px";
-document.body.appendChild(playMsg);
-
-setTimeout(()=>playMsg.style.opacity="1",500);
-
+// 💖 Replace page with YES screen
 document.body.innerHTML=`
 <div style="padding:30px">
 <h1 style="font-family:Pacifico;color:#ff4d8d">I LOVE YOU 😭❤️</h1>
+
 <p id="loveMsg"></p>
-<p id="countdown"></p>
+
+<p style="margin-top:20px">Press play and think of me 💚</p>
+
+<iframe 
+  src="https://open.spotify.com/embed/track/2tUBqZG2AbRi7Q0BIrVrEj" 
+  width="300" 
+  height="80" 
+  style="border-radius:12px; margin-top:10px"
+  allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture">
+</iframe>
+
 </div>`;
 
 // 💌 typing love message
@@ -254,6 +246,8 @@ for(let i=0;i<200;i++){
  c.style.animation="float 4s linear forwards";
  document.body.appendChild(c);
 }
+};
+  
 };
 </script>
 
