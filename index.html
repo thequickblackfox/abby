@@ -199,26 +199,62 @@ noBtn.onclick=move;
 
 // YES click message + confetti
 document.getElementById("yesBtn").onclick=()=>{
- document.body.innerHTML=`
- <div style="padding:30px">
- <h1 style="font-family:Pacifico;color:#ff4d8d">I LOVE YOU 😭❤️</h1>
- <p>You just made me the happiest person alive.</p>
- <p>Thank you for being you and making my days brighter.</p>
- <p>I can't wait to spend Valentine's Day with you 🌹</p>
- <p>You're stuck with me now 😌💖</p>
- </div>`;
- for(let i=0;i<200;i++){
-  let c=document.createElement("div");
-  c.innerHTML="💖";
-  c.style.position="fixed";
-  c.style.left=Math.random()*100+"vw";
-  c.style.top="-20px";
-  c.style.fontSize="24px";
-  c.style.animation="float 4s linear forwards";
-  document.body.appendChild(c);
+
+// 📳 Phone vibration
+if(navigator.vibrate) navigator.vibrate([200,100,200,100,400]);
+
+// 🎵 Romantic music
+let music=new Audio("https://www.bensound.com/bensound-music/bensound-romantic.mp3");
+music.loop=true;
+music.play();
+
+document.body.innerHTML=`
+<div style="padding:30px">
+<h1 style="font-family:Pacifico;color:#ff4d8d">I LOVE YOU 😭❤️</h1>
+<p id="loveMsg"></p>
+<p id="countdown"></p>
+</div>`;
+
+// 💌 typing love message
+const msg="You just made me the happiest person alive. I can't wait to spend Valentine's Day with you 🌹 You're stuck with me now 😌💖";
+let j=0;
+function typeLove(){
+ if(j<msg.length){
+  document.getElementById("loveMsg").innerHTML+=msg.charAt(j);
+  j++;
+  setTimeout(typeLove,40);
  }
+}
+typeLove();
+
+// 💖 heart rain
+for(let i=0;i<200;i++){
+ let c=document.createElement("div");
+ c.innerHTML="💖";
+ c.style.position="fixed";
+ c.style.left=Math.random()*100+"vw";
+ c.style.top="-20px";
+ c.style.fontSize="24px";
+ c.style.animation="float 4s linear forwards";
+ document.body.appendChild(c);
+}
+
+// ⏳ Valentine countdown
+function updateCountdown(){
+ const valentines=new Date("Feb 14, 2026 00:00:00").getTime();
+ const now=new Date().getTime();
+ const gap=valentines-now;
+
+ const days=Math.floor(gap/(1000*60*60*24));
+ const hours=Math.floor((gap%(1000*60*60*24))/(1000*60*60));
+ const mins=Math.floor((gap%(1000*60*60))/(1000*60));
+
+ document.getElementById("countdown").innerHTML=
+ "Valentine's countdown: "+days+"d "+hours+"h "+mins+"m 💘";
+}
+setInterval(updateCountdown,1000);
 };
 </script>
 
 </body>
-</html>
+</html
