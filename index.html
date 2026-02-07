@@ -109,6 +109,15 @@ button{
  100%{transform:translateY(-900px);opacity:0;}
 }
 
+#yesText{
+  color:#ff4d8d;
+  animation:bounce 1s infinite;
+}
+
+@keyframes bounce{
+ 0%,100%{transform:translateY(0);}
+ 50%{transform:translateY(-12px);}
+}
 
 </style>
 </head>
@@ -211,7 +220,7 @@ document.body.innerHTML=`
 <img src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExODhia3UwN3BrOWVtczloajJycWFkbWY3dnBha2plcGxlb3BxNjhsNCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/MDJ9IbxxvDUQM/giphy.gif"
  style="width:320px;max-width:85vw;border-radius:20px;margin-bottom:15px;box-shadow:0 5px 15px rgba(0,0,0,.2);">
 
-<h1 style="font-family:Pacifico;color:#ff4d8d">I LOVE YOU 😭❤️</h1>
+<h1 id="yesText" style="font-family:Pacifico;">She said YES!!! 💕</h1>
 <p id="loveMsg"></p>
 </div>`;
 
