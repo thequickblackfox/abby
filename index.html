@@ -204,28 +204,25 @@ document.getElementById("yesBtn").onclick=()=>{
 // 📳 Phone vibration
 if(navigator.vibrate) navigator.vibrate([200,100,200,100,400]);
 
-// 🎵 Play Always Be My Baby – David Cook (fade-in volume)
-const iframe = document.createElement("iframe");
-iframe.src="https://www.youtube.com/embed/3xrdRQxM1B0?autoplay=1&loop=1&playlist=3xrdRQxM1B0&enablejsapi=1";
-iframe.id="ytMusic";
-iframe.allow="autoplay";
-iframe.style.display="none";
-document.body.appendChild(iframe);
+// 🎵 Spotify player – Emotion Sickness by Parachute
+const spotify = document.createElement("iframe");
+spotify.src="https://open.spotify.com/embed/track/2tUBqZG2AbRi7Q0BIrVrEj";
+spotify.width="300";
+spotify.height="80";
+spotify.style.borderRadius="12px";
+spotify.style.marginTop="20px";
+spotify.allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture";
+document.body.appendChild(spotify);
 
-// wait for player to load then fade volume in
-let volume = 0;
-const fadeInterval = setInterval(()=>{
-  const player = document.getElementById("ytMusic").contentWindow;
-  if(player){
-    player.postMessage(JSON.stringify({
-      event:"command",
-      func:"setVolume",
-      args:[volume]
-    }),"*");
-    volume += 5; // speed of fade (change if you want slower)
-    if(volume >= 100) clearInterval(fadeInterval);
-  }
-},300);
+// 💌 show cute play message
+const playMsg=document.createElement("p");
+playMsg.innerHTML="Press play and think of me 💚";
+playMsg.style.opacity="0";
+playMsg.style.transition="1.5s";
+playMsg.style.marginTop="10px";
+document.body.appendChild(playMsg);
+
+setTimeout(()=>playMsg.style.opacity="1",500);
 
 document.body.innerHTML=`
 <div style="padding:30px">
