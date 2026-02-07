@@ -201,25 +201,22 @@ noBtn.onclick=move;
 // YES click message + confetti
 document.getElementById("yesBtn").onclick=()=>{
 
-// 📳 Phone vibration
+// 📳 vibration
 if(navigator.vibrate) navigator.vibrate([200,100,200,100,400]);
 
-// 💖 Replace page with YES screen
 document.body.innerHTML=`
 <div style="padding:30px">
 <h1 style="font-family:Pacifico;color:#ff4d8d">I LOVE YOU 😭❤️</h1>
-
 <p id="loveMsg"></p>
-
 <p style="margin-top:20px">Our song is playing 🎶</p>
+</div>`;
 
-// 🎵 Play La Vie En Rose (mobile autoplay fix)
+// 🎵 ADD THIS PART HERE (music will work now)
 const song = new Audio("https://cdn.pixabay.com/download/audio/2022/03/22/audio_3a4b0c8d3a.mp3?filename=la-vie-en-rose-ambient-11288.mp3");
 song.loop = true;
-song.volume = 0; // start silent
+song.volume = 0;
 song.play();
 
-// ✨ Fade in volume
 let vol = 0;
 const fade = setInterval(()=>{
   if(vol < 1){
@@ -229,8 +226,6 @@ const fade = setInterval(()=>{
     clearInterval(fade);
   }
 },300);
-
-</div>`;
 
 // 💌 typing love message
 const msg="You just made me the happiest person alive. I can't wait to spend Valentine's Day with you 🌹 You're stuck with me now 😌💖";
