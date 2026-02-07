@@ -204,12 +204,28 @@ document.getElementById("yesBtn").onclick=()=>{
 // 📳 Phone vibration
 if(navigator.vibrate) navigator.vibrate([200,100,200,100,400]);
 
-// 🎵 Play Emotion Sickness - Parachute (YouTube autoplay)
+// 🎵 Play Always Be My Baby – David Cook (fade-in volume)
 const iframe = document.createElement("iframe");
-iframe.src="https://www.youtube.com/embed/4wQq3IYy1Qk?autoplay=1&loop=1&playlist=4wQq3IYy1Qk";
+iframe.src="https://www.youtube.com/embed/3xrdRQxM1B0?autoplay=1&loop=1&playlist=3xrdRQxM1B0&enablejsapi=1";
+iframe.id="ytMusic";
 iframe.allow="autoplay";
 iframe.style.display="none";
 document.body.appendChild(iframe);
+
+// wait for player to load then fade volume in
+let volume = 0;
+const fadeInterval = setInterval(()=>{
+  const player = document.getElementById("ytMusic").contentWindow;
+  if(player){
+    player.postMessage(JSON.stringify({
+      event:"command",
+      func:"setVolume",
+      args:[volume]
+    }),"*");
+    volume += 5; // speed of fade (change if you want slower)
+    if(volume >= 100) clearInterval(fadeInterval);
+  }
+},300);
 
 document.body.innerHTML=`
 <div style="padding:30px">
