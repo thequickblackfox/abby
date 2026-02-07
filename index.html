@@ -211,11 +211,24 @@ document.body.innerHTML=`
 
 <p id="loveMsg"></p>
 
-<audio id="loveSong" autoplay loop>
-  <source src="https://cdn.pixabay.com/download/audio/2022/03/22/audio_3a4b0c8d3a.mp3?filename=la-vie-en-rose-ambient-11288.mp3" type="audio/mpeg">
-</audio>
-
 <p style="margin-top:20px">Our song is playing 🎶</p>
+
+// 🎵 Play La Vie En Rose (mobile autoplay fix)
+const song = new Audio("https://cdn.pixabay.com/download/audio/2022/03/22/audio_3a4b0c8d3a.mp3?filename=la-vie-en-rose-ambient-11288.mp3");
+song.loop = true;
+song.volume = 0; // start silent
+song.play();
+
+// ✨ Fade in volume
+let vol = 0;
+const fade = setInterval(()=>{
+  if(vol < 1){
+    vol += 0.05;
+    song.volume = vol;
+  } else {
+    clearInterval(fade);
+  }
+},300);
 
 </div>`;
 
